@@ -2,14 +2,15 @@
 #
 # Targets:
 #   make           build shared lib (libtinya2a.{so|dylib}) and static lib
-#   make test      build & run C self-test
 #   make pytest    run Python tests against the shared lib
+#   make install   install lib + header to PREFIX (default /usr/local)
 #   make clean
 #
 CC      ?= cc
 AR      ?= ar
 CFLAGS  ?= -O2 -Wall -Wextra -Wpedantic -std=c11 -fPIC -Iinclude
 LDFLAGS ?=
+PREFIX  ?= /usr/local
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
@@ -27,7 +28,7 @@ BUILD_DIR := build
 SHLIB := $(BUILD_DIR)/libtinya2a.$(SHLIB_EXT)
 STLIB := $(BUILD_DIR)/libtinya2a.a
 
-.PHONY: all clean test pytest dirs
+.PHONY: all clean pytest install dirs
 
 all: dirs $(SHLIB) $(STLIB)
 
@@ -45,12 +46,16 @@ $(STLIB): $(OBJS)
 	$(AR) rcs $@ $(OBJS)
 	@echo "Built $@"
 
-test: dirs $(STLIB)
-	$(CC) $(CFLAGS) tests/test_c.c $(STLIB) -o $(BUILD_DIR)/test_c
-	$(BUILD_DIR)/test_c
-
 pytest: $(SHLIB)
 	cd python && python3 -m pytest tests -v
+
+install: all
+	install -d $(DESTDIR)$(PREFIX)/lib
+	install -d $(DESTDIR)$(PREFIX)/include
+	install -m 644 $(SHLIB) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 $(STLIB) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 include/tinya2a.h $(DESTDIR)$(PREFIX)/include/
+	@echo "Installed to $(DESTDIR)$(PREFIX)"
 
 clean:
 	rm -rf $(BUILD_DIR) src/*.o

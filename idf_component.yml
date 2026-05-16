@@ -11,7 +11,7 @@
 description: TinyA2A and A2A-Z reference protocol library
 version: "0.1.0"
 license: "Apache-2.0"
-url: "https://github.com/your-org/tinya2a"
+url: "https://github.com/r1marcus/TinyA2A"
 targets:
   - esp32
   - esp32s3

@@ -1,7 +1,7 @@
-# TinyA2A — Quickstart for STMicroelectronics reviewers
+# TinyA2A — Quickstart
 
-This bundle accompanies the paper *TinyA2A: An Agentic-to-Agentic Protocol
-for Embedded Agents*. It is a working C reference implementation with
+This guide accompanies the paper *TinyA2A: An Agentic-to-Agentic Protocol
+for Embedded Agents*. It is a working C11 reference implementation with
 Python bindings, intended to be reproducible and portable across the full
 STM32 family — from Cortex-M MCUs to STM32MP Cortex-A applications.
 

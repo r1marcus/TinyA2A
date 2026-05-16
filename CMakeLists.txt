@@ -65,11 +65,3 @@ install(TARGETS tinya2a tinya2a_static
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-# Tests (optional, enabled with -DTINYA2A_BUILD_TESTS=ON if you add tests/)
-option(TINYA2A_BUILD_TESTS "Build C tests" OFF)
-if(TINYA2A_BUILD_TESTS AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_c.c")
-    enable_testing()
-    add_executable(tinya2a_test_c tests/test_c.c)
-    target_link_libraries(tinya2a_test_c tinya2a_static)
-    add_test(NAME tinya2a_c_tests COMMAND tinya2a_test_c)
-endif()

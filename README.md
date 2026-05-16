@@ -1,5 +1,8 @@
 # TinyA2A — Reference Implementation
 
+[![CI](https://github.com/r1marcus/TinyA2A/actions/workflows/ci.yml/badge.svg)](https://github.com/r1marcus/TinyA2A/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+
 Reference C library + Python bindings for the **TinyA2A** and **A2A-Z**
 protocols described in the paper
 

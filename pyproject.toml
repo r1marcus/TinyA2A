@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinya2a"
+version = "0.1.0"
+description = "Python bindings for the TinyA2A and A2A-Z reference C library"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Marcus Rüb" }]
+requires-python = ">=3.7"
+keywords = ["mqtt", "iot", "agents", "embedded", "stm32", "edge", "agentic", "protocol"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications",
+    "Topic :: System :: Distributed Computing",
+    "Topic :: System :: Networking",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+]
+
+[project.urls]
+Homepage      = "https://github.com/r1marcus/TinyA2A"
+Source        = "https://github.com/r1marcus/TinyA2A"
+Issues        = "https://github.com/r1marcus/TinyA2A/issues"
+Changelog     = "https://github.com/r1marcus/TinyA2A/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+package-dir = { "" = "python" }
+
+[tool.setuptools.packages.find]
+where = ["python"]
+include = ["tinya2a*"]
