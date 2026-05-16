@@ -1,0 +1,20 @@
+## ESP-IDF component manifest
+##
+## To use as an ESP-IDF component, copy the entire tinya2a/ folder into your
+## project's components/ directory, then:
+##
+##     #include "tinya2a.h"
+##     /* CMakeLists.txt:  REQUIRES tinya2a */
+##
+## No external dependencies. POSIX time replaced by esp_timer.
+
+description: TinyA2A and A2A-Z reference protocol library
+version: "0.1.0"
+license: "Apache-2.0"
+url: "https://github.com/your-org/tinya2a"
+targets:
+  - esp32
+  - esp32s3
+  - esp32c3
+  - esp32c6
+  - esp32h2
